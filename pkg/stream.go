@@ -9,8 +9,7 @@ import (
 	"io"
 
 	"github.com/JoshVarga/blast"
-
-	wav "github.com/OpenDiablo2/wav/pkg"
+	"github.com/gravestench/wav"
 )
 
 // Stream represents a stream of data in an MPQ archive
