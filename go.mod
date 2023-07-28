@@ -9,5 +9,5 @@ require (
 
 require (
 	github.com/OpenDiablo2/OpenDiablo2 v0.0.0-20211021131836-7f92c571bf04 // indirect
-	github.com/gravestench/bitstream v0.0.0-20230724170509-bd9e99040b01 // indirect
+	github.com/gravestench/bitstream v0.0.0-20230728184458-917abdef8ae3 // indirect
 )
