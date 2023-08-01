@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/JoshVarga/blast v0.0.0-20210808061142-eadad17358e8
-	github.com/gravestench/wav v0.0.0-20230725085607-9f08a02f8245
+	github.com/gravestench/wav v0.0.0-20230801222856-baef9562cbff
 )
 
 require (

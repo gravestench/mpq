@@ -31,9 +31,8 @@ func (mpq *MPQ) readHashTable() error {
 
 	for n, i := uint32(0), uint32(0); i < mpq.header.HashTableEntries; n, i = n+4, i+1 {
 		e := &Hash{
-			A: hashData[n],
-			B: hashData[n+1],
-			// https://github.com/OpenDiablo2/OpenDiablo2/issues/812
+			A:          hashData[n],
+			B:          hashData[n+1],
 			Locale:     uint16(hashData[n+2] >> 16),    //nolint:gomnd // // binary data
 			Platform:   uint16(hashData[n+2] & 0xFFFF), //nolint:gomnd // // binary data
 			BlockIndex: hashData[n+3],

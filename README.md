@@ -4,9 +4,9 @@
   MPQ archive codec
   <br />
   <br />
-  <a href="https://github.com/OpenDiablo2/mpq/issues">Report Bug</a>
+  <a href="https://github.com/gravestench/mpq/issues">Report Bug</a>
   ·
-  <a href="https://github.com/OpenDiablo2/mpq/issues">Request Feature</a>
+  <a href="https://github.com/gravestench/mpq/issues">Request Feature</a>
 </p>
 
 <!-- ABOUT THE PROJECT -->
@@ -23,7 +23,7 @@ More about the MoPaQ archive file format can be found [here](https://discord.com
   write new golang applications using this library.
     ```golang
    import (
-        mpq "github.com/OpenDiablo2/mpq/pkg"
+        mpq "github.com/gravestench/mpq/pkg"
   )
     ```
 * `cmd/` - This directory contains command-line and graphical applications, each having their own sub-directory.
@@ -48,7 +48,7 @@ As long as `$GOBIN` is defined and on your `$PATH`, you can build and install al
 
 ```shell
 # clone the repo, enter the dir
-git clone http://github.com/OpenDiablo2/mpq
+git clone http://github.com/gravestench/mpq
 cd mpq
 
 # build and install inside of $GOBIN
@@ -74,9 +74,9 @@ Any contributions are **greatly appreciated**.
 5. Open a Pull Request
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[dt1]: https://github.com/OpenDiablo2/dt1
-[dc6]: https://github.com/OpenDiablo2/dc6
-[dat_palette]: https://github.com/OpenDiablo2/dat_palette
-[ds1]: https://github.com/OpenDiablo2/ds1
-[cof]: https://github.com/OpenDiablo2/cof
+[dt1]: https://github.com/gravestench/dt1
+[dc6]: https://github.com/gravestench/dc6
+[dat_palette]: https://github.com/gravestench/dat_palette
+[ds1]: https://github.com/gravestench/ds1
+[cof]: https://github.com/gravestench/cof
 [golang]: https://golang.org/dl/

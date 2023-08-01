@@ -14,7 +14,6 @@ type (
 	FileFlag   = pkg.FileFlag
 	Hash       = pkg.Hash
 	Stream     = pkg.Stream
-	DataStream = pkg.DataStream
 	PatchInfo  = pkg.PatchInfo
 )
 

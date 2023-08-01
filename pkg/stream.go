@@ -7,6 +7,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"math"
 
 	"github.com/JoshVarga/blast"
 	"github.com/gravestench/wav"
@@ -123,16 +124,8 @@ func (v *Stream) readInternal(buffer []byte, offset, count uint32) (uint32, erro
 	return v.copy(buffer, offset, localPosition, count)
 }
 
-func min(a, b uint32) uint32 {
-	if a < b {
-		return a
-	}
-
-	return b
-}
-
 func (v *Stream) copy(buffer []byte, offset, pos, count uint32) (uint32, error) {
-	bytesToCopy := min(uint32(len(v.Data))-pos, count)
+	bytesToCopy := min32(uint32(len(v.Data))-pos, count)
 	if bytesToCopy <= 0 {
 		return 0, io.EOF
 	}
@@ -150,7 +143,7 @@ func (v *Stream) bufferData() (err error) {
 		return nil
 	}
 
-	expectedLength := min(v.Block.UncompressedFileSize-(blockIndex*v.Size), v.Size)
+	expectedLength := min32(v.Block.UncompressedFileSize-(blockIndex*v.Size), v.Size)
 	if v.Data, err = v.loadBlock(blockIndex, expectedLength); err != nil {
 		return err
 	}
@@ -332,4 +325,8 @@ func pkDecompress(data []byte) ([]byte, error) {
 	}
 
 	return buffer.Bytes(), nil
+}
+
+func min32(a, b uint32) uint32 {
+	return uint32(math.Min(float64(a), float64(b)))
 }

@@ -125,7 +125,7 @@ func (mpq *MPQ) ReadFileStream(fileName string) (io.ReadSeekCloser, error) {
 		return nil, err
 	}
 
-	return &DataStream{stream: stream}, nil
+	return &MpqDataStream{stream: stream}, nil
 }
 
 // ReadTextFile reads a file and returns it as a string
