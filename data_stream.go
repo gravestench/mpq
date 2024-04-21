@@ -1,4 +1,4 @@
-package pkg
+package mpq
 
 // MpqDataStream represents a stream for MPQ data.
 type MpqDataStream struct {
