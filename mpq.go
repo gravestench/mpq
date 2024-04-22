@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"errors"
 	"fmt"
-	"io"
 	"io/fs"
 	"io/ioutil"
 	"os"
@@ -47,16 +46,6 @@ func New(fileName string) (*MPQ, error) {
 
 	if err := mpq.readHeader(); err != nil {
 		return nil, fmt.Errorf("failed to read reader: %v", err)
-	}
-
-	return mpq, nil
-}
-
-// FromFile loads an MPQ file and returns a MPQ structure
-func FromFile(fileName string) (*MPQ, error) {
-	mpq, err := New(fileName)
-	if err != nil {
-		return nil, err
 	}
 
 	if err := mpq.readHashTable(); err != nil {
@@ -111,8 +100,8 @@ func (mpq *MPQ) ReadFile(fileName string) ([]byte, error) {
 	return buffer, nil
 }
 
-// ReadFileStream reads the mpq file data and returns a stream
-func (mpq *MPQ) ReadFileStream(fileName string) (io.ReadSeekCloser, error) {
+// readFileStream reads the mpq file data and returns a stream
+func (mpq *MPQ) readFileStream(fileName string) (*MpqDataStream, error) {
 	fileBlockData, err := mpq.getFileBlockData(fileName)
 	if err != nil {
 		return nil, err
@@ -126,17 +115,6 @@ func (mpq *MPQ) ReadFileStream(fileName string) (io.ReadSeekCloser, error) {
 	}
 
 	return &MpqDataStream{stream: stream}, nil
-}
-
-// ReadTextFile reads a file and returns it as a string
-func (mpq *MPQ) ReadTextFile(fileName string) (string, error) {
-	data, err := mpq.ReadFile(fileName)
-
-	if err != nil {
-		return "", err
-	}
-
-	return string(data), nil
 }
 
 // Listfile returns the list of files in this MPQ
